@@ -6,3 +6,6 @@ def home_view(request):
 
 def modules_view(request):
     return render(request, "modules.html", {})
+
+def training_view(request):
+    return render(request, "training.html", {})
