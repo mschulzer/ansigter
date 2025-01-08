@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,8 +13,13 @@
       box-shadow: none !important;
     }
 
-    .acc2 {
+    div#accordionExampleTwo button {
+      color: gray;
       cursor: not-allowed;
+    }
+
+    img {
+      border: 0.5px solid gray
     }
   </style>
 </head>
@@ -21,20 +27,52 @@
 <body>
   <div class="container mt-4">
     <h2 class="mt-5 mb-5"><b>Ansigtsgenkendelse</b> - <i>og teknologien bag</i></h2>
-    <h3 class="mt-5 mb-5"><i class="fa-solid fa-gear">&nbsp;&nbsp;</i>Modul 3</h3>
-    <div class="alert alert-warning" role="alert">
-      I dette modul prøver I jeres hidtidige viden om og arbejde med ansigtsgenkendelse, dels fra de praktiske øvelser,
-      dels fra opgaverne i GeoGebra, af på modeller, sådan som de faktisk bruges ”ude i virkeligheden”.
-      I bliver introduceret for to modeller: den første er særligt kendetegnet ved dens hurtighed og tilgange, der meget
-      ligner dem, I brugte ifm. GeoGebra – såkaldte ”facial landmarks”, og den anden model er et eksempel på, hvordan
-      den nyeste teknologi griber samme problem an, såkaldte Convolutional Neural Networks (CNN).
+
+    <!--  ACCORDION: Toolbox -->
+
+    <div class="accordion" id="accordionExampleZero">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseZero" aria-controls="collapseZero">
+            <i class="fa-solid fa-gear">&nbsp;&nbsp;</i><b>Værktøjskasse</b>
+          </button>
+        </h2>
+        <div id="collapseZero" class="accordion-collapse collapse" data-bs-parent="#accordionExampleZero">
+          <div class="accordion-body">
+            <h5 class="mb-5">Generelle tips til Google Colab</h5>
+            <div class="hstack gap-3">
+              <div class="row">
+                <div class="col">
+                  <p><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;<strong>Sådan uploader du en fil:</strong></p>
+                  <img class="w-100" src="{% static 'colab_upload.gif' %}" alt="Upload fil">
+                </div>
+                <div class="col">
+                  <p><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;<strong>Sådan viser du et billede:</strong></p>
+                  <img class="w-100" src="{% static 'colab_image.gif' %}" alt="Indlæs billede">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <h3 class="mt-5 mb-5"><strong>Modul 3</strong></h3>
+    <div class="alert alert-warning" role="alert">
+      <i class="fa-brands fa-readme"></i>&nbsp;&nbsp;I dette modul prøver I jeres hidtidige viden om og
+      arbejde med ansigtsgenkendelse, dels fra de praktiske øvelser,
+      dels fra opgaverne i GeoGebra, af på modeller, sådan som de faktisk bruges ”i virkeligheden”.
+      Den første er særligt kendetegnet ved dens hurtighed og særlige tilgang, en såkaldt ”Facial Landmarks”-model.
+    </div>
+
+    <!--  ACCORDION: Modul 3 -->
+
     <div class="accordion" id="accordionExampleOne">
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
             aria-expanded="true" aria-controls="collapseOne">
-            <span style="color: rgb(107, 129, 178);"><b>Aktivitet 1</b></span>:&nbsp;&nbsp;<b>Præsentation af <i>Facial
+            <span style="color: rgb(107, 129, 178);"><b>Aktivitet 1</b></span>: &nbsp;&nbsp;<b>Præsentation af <i>Facial
                 Landmarks</i></b>&nbsp;&nbsp;(15 min.)
           </button>
         </h2>
@@ -77,7 +115,7 @@
 
             <p>I skal ind på følgende <i class="fa-solid fa-link"></i> <a
                 href="https://colab.research.google.com/drive/1efURR5vJCOvWbzrvsd_RFVabFU0tGWW1#scrollTo=jF_n05yro2BW">Colab-notebook</a>.
-            </p><br>
+            </p>
           </div>
         </div>
       </div>
@@ -98,15 +136,17 @@
         </div>
       </div>
     </div>
-    <h3 class="mt-5 mb-5"><i class="fa-solid fa-lock"></i></i>&nbsp;&nbsp;Modul 4</h3>
+    <h3 class="mt-5 mb-5"><i class="fa-solid fa-lock"></i></i>&nbsp;&nbsp;<strong>Modul 4</strong></h3>
     <div class="alert alert-light" role="alert">
-      <span style="color: lightgray;">I dette modul skal I nu stifte bekendtskab med, hvordan ansigtsgenkendelse
-        fungerer i dag. Det er således,
-        de
-        teknologier, I har
-        hørt omtalt i forløbets indledende moduler: den teknologi, politiet gør brug af, og som er implementeret på
+      <span style="color: lightgray;"><i class="fa-brands fa-readme"></i>&nbsp;&nbsp;I dette modul skal I nu stifte
+        bekendtskab med,
+        hvordan ansigtsgenkendelse fungerer i dag. Det er således, de teknologier, I har hørt omtalt i forløbets
+        indledende moduler: den teknologi, politiet gør brug af, og som er implementeret på
         fodboldstadions rundt omkring i landet.</span>
     </div>
+
+    <!--  ACCORDION: Modul 4 -->
+
     <div class="accordion" id="accordionExampleTwo">
       <div class="accordion-item">
         <h2 class="accordion-header">
