@@ -8,6 +8,7 @@
   <title>Ansigtsgenkendelse - og teknologien bag</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <style>
     .accordion-button:focus {
       box-shadow: none !important;
@@ -19,7 +20,17 @@
     }
 
     img {
-      border: 0.5px solid gray
+      border: 0.5px solid gray;
+    }
+
+    ol {
+
+      background-color: rgb(241, 241, 241);
+      border-radius: 10px;
+    }
+
+    li {
+      padding: 5px;
     }
   </style>
 </head>
@@ -41,18 +52,29 @@
         <div id="collapseZero" class="accordion-collapse collapse" data-bs-parent="#accordionExampleZero">
           <div class="accordion-body">
             <h5 class="mb-5">Generelle tips til Google Colab</h5>
-            <div class="hstack gap-3">
-              <div class="row">
-                <div class="col">
-                  <p><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;<strong>Sådan uploader du en fil:</strong></p>
-                  <img class="w-100" src="{% static 'colab_upload.gif' %}" alt="Upload fil">
-                </div>
-                <div class="col">
-                  <p><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;<strong>Sådan viser du et billede:</strong></p>
-                  <img class="w-100" src="{% static 'colab_image.gif' %}" alt="Indlæs billede">
-                </div>
+
+            <div class="row">
+              <div class="col">
+                <p><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;<strong>Sådan kopierer du en Notebook:</strong>
+                </p>
+                <img class="w-100" id="inst-gif-1" src="{% static 'colab_copy.gif' %}" alt="Kopier notebook">
+              </div>
+              <div class="col">
+                <p><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;<strong>Sådan uploader du en fil:</strong></p>
+                <img class="w-100" src="{% static 'colab_upload.gif' %}" alt="Upload fil">
               </div>
             </div>
+            <div class="row mt-5">
+              <div class="col">
+                <p><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;<strong>Sådan viser du et billede:</strong></p>
+                <img class="w-100" src="{% static 'colab_image.gif' %}" alt="Indlæs billede">
+              </div>
+              <div class="col">
+                <p><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;<strong>Sådan laver du en mappe:</strong></p>
+                <img class="w-100" src="{% static 'colab_folder.gif' %}" alt="Lav mappe">
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -72,16 +94,28 @@
         <h2 class="accordion-header">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
             aria-expanded="true" aria-controls="collapseOne">
-            <span style="color: rgb(107, 129, 178);"><b>Aktivitet 1</b></span>: &nbsp;&nbsp;<b>Præsentation af <i>Facial
+            <b>Aktivitet 1</b>: &nbsp;&nbsp;<b>Præsentation af <i>Facial
                 Landmarks</i></b>&nbsp;&nbsp;(15 min.)
           </button>
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExampleOne">
           <div class="accordion-body">
-            <p>Læs introduktionen til teknologien bag Facial Landmarks.</p>
-            <p>Diskutér efterfølgende de pågældende spørgsmål med din sidemakker for at sikre, at I har forstået, dels
-              hvad
-              det er for en teknologi, dels hvordan I tænkes at bruge den i det følgende.</p><br>
+            <img class="w-100" src="{% static 'landmarks.jpg' %}" alt="">
+            <ul class="mt-4">
+              <li>I får først en helt grundlæggende introduktion til <strong>Facial Landmarks</strong>.</li>
+              <li>Dernæst diskuterer i nedenstående spørgsmål i gruppen/ med sidemakkeren. <br><i>I kan med fordel
+                  kopiere
+                  spørgsmålene ind i et Microsoft Word-dokument - eller Google Docs, så I kan vende tilbage til svarene
+                  senere.</i>
+              </li>
+            </ul>
+            <h5 class="mt-4">Forståelsesspørgsmål:</h5>
+            <ol>
+              <li>Hvad forstår man ved "<i>facial landmarks</i>"?</li>
+              <li>Hvilke data bygger modellen på?</li>
+              <li>Hvilke to grundkomponenter består metoden af?</li>
+              <li>Man kunne formulere den sidste grundkomponent i en række trin - hvilke?</li>
+            </ol>
           </div>
         </div>
       </div>
@@ -89,33 +123,47 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Aktivitet 2: &nbsp;&nbsp;<b>Afprøvning på eget
+            <b>Aktivitet 2</b>: &nbsp;&nbsp;<b>Afprøvning på eget
               billeddata</b>&nbsp;&nbsp;(30 min.)
           </button>
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExampleOne">
           <div class="accordion-body">
-            <p>I skal nu til selv at arbejde undersøgende med teknologien. Overvej først med sidemakkeren, hvorvidt
-              ”ideal-ansigtet”, altså det ret abstrakte ansigt i punkter, som modellen arbejder på baggrund af, stemmer
-              overens med jeres arbejde fra de to foregående moduler? Bekræftes mon nogle af de intuitioner, I selv
-              havde,
-              men som I ikke fik testet i de foregående moduler?</p>
-
-            <p>I skal nu bruge jeres billedmateriale fra de foregående moduler. Følg anvisningerne til at importere
-              disse i
-              Colab-notebook’en, og generér opmærkninger på billederne ved hjælp af kodeeksemplerne. Er modellen præcis
-              –
-              og hvis ja, hvordan kan det så være, nu den ikke har set jeres billedmateriale før? Prøv at bruge billeder
-              af jer selv, hvor I smiler mere og mindre, har kasket el.lign. Ændrer dette på noget?</p>
-
-            <p>I har i præsentationen set, hvordan afstande mellem fx øjne eller fra næse til mund kan bruges til at
-              identificere ansigter med ret stor træfsikkerhed. Hvilke andre afstande forestiller I jer kunne være
-              relevante at undersøge? Prøv jeres idéer af ved at foretage relevante ændringer i koden i
-              Colab-notebook’en:</p>
-
-            <p>I skal ind på følgende <i class="fa-solid fa-link"></i> <a
-                href="https://colab.research.google.com/drive/1efURR5vJCOvWbzrvsd_RFVabFU0tGWW1#scrollTo=jF_n05yro2BW">Colab-notebook</a>.
-            </p>
+            <div class="row mt-3 mb-4">
+              <div class="col">
+                <img class="w-100" src="{% static 'ideal-face.jpg' %}" alt="Ideal face">
+              </div>
+              <div class="col">
+                <h5>I skal arbejde undersøgende ...</h5>
+                <p>I følgende <i class="fa-solid fa-link"></i> <a
+                    href="https://colab.research.google.com/drive/1efURR5vJCOvWbzrvsd_RFVabFU0tGWW1#scrollTo=jF_n05yro2BW">Colab-notebook</a>
+                  skal I nu til selv at eksperimentere med teknologien. Overvej
+                  først med sidemakkeren, hvorvidt
+                  ”ideal-ansigtet” (gengivet til venstre), som Facial Landmarks-modellen arbejder på baggrund af,
+                  stemmer
+                  overens med jeres intuitioner og arbejde fra de to foregående moduler?</p>
+                <p>For at komme i gang skal I bruge noget af billedmaterialet fra de to foregående moduler. Hvis ikke I
+                  har disse billeder særskilt, så tag gerne nogle screenshots. Gem dem et sted, hvor I let kan finde dem
+                  igen. Følg anvisningerne til at lave mapper og importere filer i Google Colab øverst oppe på denne
+                  side
+                  (pkt. "<i>Værktøjskasse</i>").</p>
+                <h5 class="mt-4">Prøv nu følgende:</h5>
+                <ul>
+                  <li>Prøv at ændre i linjerne 22-24 (og tilsvarende for linjerne 31-33) i funktionen
+                    <code>extract_features()</code>. Kan I få modellen til at finde fx afstanden mellem underlæbe og
+                    hagespids? Hvor nøjagtig er det? Forsøg jer med andre afstande.
+                  </li>
+                  <li>Upload to billeder af samme person fra gruppen, men hvor vedkommende forsøger at se så forskellige
+                    ud som muligt.
+                    Billederne skal begge ligge i mappen <b><code>test</code></b> under <b><code>billeddata</code></b>.
+                    I skal dernæst
+                    indtaste filnavnet på ét af disse billeder mellem parenteserne i <code>reference_image = ""</code>
+                    (søg evt. på <i>reference_image</i> vha. <kbd>CTRL+F</kbd> eller <kbd>COMMAND+F</kbd>).
+                    Kan modellen finde jer? Kan I snyde den?
+                    Hvem ligner jer egentlig <i>mindst</i> ud af alle blandt test-billederne - og hvorfor mon?</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -123,15 +171,17 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Aktivitet 3: &nbsp;&nbsp;<b>Genbesøg undersøgelser fra Modul 2&nbsp;&nbsp;(45 min.)</b>
+            <b>Aktivitet 3</b>: &nbsp;&nbsp;<b>Genbesøg undersøgelser fra Modul 2</b>&nbsp;&nbsp;(45 min.)
           </button>
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExampleOne">
           <div class="accordion-body">
             <p>Resten af modulet bruger I på at genbesøge nogle af de opgaver, som Modul 2 (Aktivitet 3) sluttede af
               med. I
-              skal altså bruge modellen til at se, om den kan ”spotte” slægtskab. Overvej her i grupper eller med
-              sidemakkeren, hvordan et sådant forsøg skal designes og udføres?</p>
+              kan mao. forsøge at bruge modellen til at se, om den kan ”spotte” slægtskab. Overvej her i grupper eller
+              med
+              sidemakkeren, hvordan et sådant forsøg skal designes og udføres? Alternativt kan I forsøge jer med jeres
+              projektidé.</p>
           </div>
         </div>
       </div>
@@ -198,7 +248,32 @@
       </div>
     </div>
   </div>
-
+  <script>
+    /*
+        const img = document.getElementById('inst-gif-1');
+        const canvas = document.getElementById("my-canvas");
+        img.onload = () => {
+          // Get the DOM-rendered dimensions of the image
+          const rect = img.getBoundingClientRect();
+          const renderedWidth = rect.width;
+          const renderedHeight = rect.height;
+    
+          // Set the canvas dimensions to match the image's rendered size
+          canvas.width = renderedWidth;
+          canvas.height = renderedHeight;
+    
+          // Log the canvas dimensions
+          console.log(rect);
+    
+          // Optional: Draw the image onto the canvas
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        };
+        if (img.complete) {
+          img.onload();
+        }
+        */
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
