@@ -40,7 +40,7 @@
 
 <body>
   <div class="container mt-4 mb-5">
-    <h2 class="mt-5 mb-5"><b>Ansigtsgenkendelse</b> - <i>og teknologien bag</i></h2>
+    <h1 class="mt-5 mb-5"><b>Ansigtsgenkendelse</b> - <i>og teknologien bag</i></h1>
 
     <!--  ACCORDION: Toolbox -->
 
@@ -82,21 +82,22 @@
         </div>
       </div>
     </div>
+    <br>
     <h3 class="mt-5 mb-5"><strong>Modul 3</strong></h3>
     <div class="alert alert-warning" role="alert">
       <i class="fa-brands fa-readme"></i>&nbsp;&nbsp;I dette modul skal I prøve jeres billedmateriale af på en model til
       ansigtsgenkendelse, som rent faktisk bruges ”i virkeligheden”, en
-      såkaldt ”Facial Landmarks”-model.
+      såkaldt <i>Facial Landmarks</i>-model.
     </div>
 
     <!--  ACCORDION: Modul 3 -->
 
-    <div class="accordion" id="accordionExampleOne">
+    <div class="accordion mb-5" id="accordionExampleOne">
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            <b>Aktivitet 1</b>: &nbsp;&nbsp;<b>Præsentation af <i>Facial
+            Aktivitet 1: &nbsp;&nbsp;<b>Præsentation af <i>Facial
                 Landmarks</i></b>&nbsp;&nbsp;(15 min.)
           </button>
         </h2>
@@ -107,7 +108,7 @@
               href="{% static 'FL-intro.pdf' %}">PowerPoint</a>
             <ul class="mt-4">
               <li>I får først en helt grundlæggende introduktion til <strong>Facial Landmarks</strong>.</li>
-              <li>Dernæst diskuterer i nedenstående spørgsmål i gruppen/ med sidemakkeren. <br><i>I kan med fordel
+              <li>Dernæst diskuterer I nedenstående spørgsmål i gruppen. <br><i>I kan med fordel
                   kopiere
                   spørgsmålene ind i et Microsoft Word-dokument - eller Google Docs, så I kan vende tilbage til svarene
                   senere.</i>
@@ -117,7 +118,7 @@
             <ol>
               <li>Hvad forstår man ved "<i>facial landmarks</i>"?</li>
               <li>Hvilke data bygger modellen på?</li>
-              <li>Hvilke to grundkomponenter består metoden af?</li>
+              <li>Hvilke to grundkomponenter består denne tilgang af?</li>
               <li>Man kunne formulere den sidste grundkomponent i en række trin - hvilke?</li>
             </ol>
           </div>
@@ -127,7 +128,7 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            <b>Aktivitet 2</b>: &nbsp;&nbsp;<b>Afprøvning på eget
+            Aktivitet 2: &nbsp;&nbsp;<b>Afprøvning på eget
               billeddata</b>&nbsp;&nbsp;(30 min.)
           </button>
         </h2>
@@ -143,11 +144,13 @@
                     href="https://colab.research.google.com/drive/1efURR5vJCOvWbzrvsd_RFVabFU0tGWW1#scrollTo=1cJzCH7DVShZ">Colab-notebook</a>
                   skal I nu til selv at eksperimentere med teknologien. Overvej
                   først med sidemakkeren, hvorvidt
-                  ”ideal-ansigtet” (gengivet til venstre), som Facial Landmarks-modellen arbejder på baggrund af,
+                  ”ideal-ansigtet” (gengivet til venstre), som <i>Facial Landmarks</i>-modellen arbejder på baggrund af,
                   stemmer
-                  overens med jeres intuitioner og arbejde fra de to foregående moduler?</p>
-                <p>For at komme i gang skal I bruge noget af billedmaterialet fra de to foregående moduler. Hvis ikke I
-                  har disse billeder særskilt, så tag gerne nogle screenshots. Gem dem et sted, hvor I let kan finde dem
+                  overens med jeres intuitioner - og jeres arbejde fra de to foregående moduler?</p>
+                <p>For at komme i gang skal I bruge noget af billedmaterialet fra sidst. Hvis ikke I
+                  har disse billeder liggende på computeren, så tag gerne nogle screenshots fra undervisningsmaterialet.
+                  Gem disse billeder et sted, hvor I let
+                  kan finde dem
                   igen. Følg anvisningerne til at lave mapper og importere filer i Google Colab øverst oppe på denne
                   side
                   (pkt. "<i>Værktøjskasse</i>").</p>
@@ -155,16 +158,19 @@
                 <ul>
                   <li>Prøv at ændre i linjerne 22-24 (og tilsvarende for linjerne 31-33) i funktionen
                     <code>extract_features()</code>. Kan I få modellen til at finde fx afstanden mellem underlæbe og
-                    hagespids? Hvor nøjagtig er det? Forsøg jer med andre afstande.
+                    hagespids? Hvor nøjagtig er den? Forsøg jer også med andre afstande.
                   </li>
-                  <li>Upload to billeder af samme person fra gruppen, men hvor vedkommende forsøger at se så forskellige
+                  <li>Upload to billeder af samme person fra gruppen, men hvor vedkommende forsøger at se så forskellig
                     ud som muligt.
                     Billederne skal begge ligge i mappen <b><code>test</code></b> under <b><code>billeddata</code></b>.
                     I skal dernæst
-                    indtaste filnavnet på ét af disse billeder mellem parenteserne i <code>reference_image = ""</code>
+                    indtaste <u>filnavnet</u> på ét af disse billeder mellem parenteserne i
+                    <code>reference_image = "..."</code>
                     (søg evt. på <i>reference_image</i> vha. <kbd>CTRL+F</kbd> eller <kbd>COMMAND+F</kbd>).
-                    Kan modellen finde jer? Kan I snyde den?
-                    Hvem ligner jer egentlig <i>mindst</i> ud af alle blandt test-billederne - og hvorfor mon?</li>
+                    Kan modellen finde personen? Kan I snyde den?
+                    Hvem ligner jer egentlig <i>mindst</i> ud af alle blandt test-billederne - og hvorfor mon? Hvilken
+                    matematisk formel bliver i øvrigt brugt til at måle lighed?
+                  </li>
                 </ul>
               </div>
             </div>
@@ -175,21 +181,23 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            <b>Aktivitet 3</b>: &nbsp;&nbsp;<b>Genbesøg undersøgelser fra Modul 2</b>&nbsp;&nbsp;(45 min.)
+            Aktivitet 3: &nbsp;&nbsp;<b>Genbesøg undersøgelser fra Modul 2</b>&nbsp;&nbsp;(45 min.)
           </button>
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExampleOne">
           <div class="accordion-body">
             <p>Resten af modulet bruger I på at genbesøge nogle af de opgaver, som Modul 2 (Aktivitet 3) sluttede af
               med. I
-              kan mao. forsøge at bruge modellen til at se, om den kan ”spotte” slægtskab. Overvej her i grupper eller
+              kan fx forsøge at bruge modellen til at se, om den kan ”spotte” slægtskab. Overvej her i grupper eller
               med
-              sidemakkeren, hvordan et sådant forsøg skal designes og udføres? Alternativt kan I forsøge jer med jeres
-              projektidé.</p>
+              sidemakkeren, hvordan et sådant forsøg skal designes og udføres - og rent praktisk sættes op i Google
+              Colab? Alternativt kan I forsøge jer med jeres
+              foreløbige projektidé.</p>
           </div>
         </div>
       </div>
     </div>
+
     <h3 class="mt-5 mb-5"><strong>Modul 4</strong></h3>
     <div class="alert alert-warning" role="alert">
       <i class="fa-brands fa-readme"></i>&nbsp;&nbsp;I dette modul stifter I bekendtskab
@@ -219,9 +227,9 @@
             <ul class="mt-4">
               <li>I får først en helt grundlæggende introduktion til <strong>Convolutional Neural Networks</strong>.
               </li>
-              <li>Dernæst diskuterer i nedenstående spørgsmål i gruppen/ med sidemakkeren. <br><i>I kan med fordel
+              <li>Dernæst diskuterer I nedenstående spørgsmål i gruppen. <br><i>I kan med fordel
                   kopiere
-                  spørgsmålene ind i et Microsoft Word-dokument - eller Google Docs, så I kan vende tilbage til svarene
+                  spørgsmålene ind i et Microsoft Word-dokument eller Google Docs, så I kan vende tilbage til svarene
                   senere.</i>
               </li>
             </ul>
